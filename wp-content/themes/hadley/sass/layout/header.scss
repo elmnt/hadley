@@ -1,0 +1,66 @@
+/**
+ * Layout - Header
+ */
+
+// ----------- Force the z-index on the header content, 
+// ----------- so the menus are always on top.
+
+.header, 
+.header * { 
+  @extend .z7; 
+}
+
+.site-branding {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.site-title {}
+.site-title {}
+.site-description {}
+
+// ----------- The optional Book Tour button that shows up in the header when the widget is active
+
+.container--btbutton {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+// ----------- Site branding (name/tagline)
+
+.container--branding {
+  @extend .container--full;
+  padding: 0 0 2rem 0;
+}
+
+.site-branding {
+  padding: 0;
+}
+
+.site-branding .site-title {
+  font-family: $sans;
+  font-weight: $fw-semibold;
+  font-size: $h1-mobile;
+  margin: 0 auto 1rem auto;
+  line-height: 1em;
+
+  a {
+    text-decoration: none;
+  }
+
+  @media only screen and (min-width: 800px) {
+    font-size: $h1;
+    margin: 2rem auto 0 auto;
+  }
+
+}
+
+.site-branding .site-description {
+  font-family: $sans;
+  font-weight: $fw-normal;
+  font-size: 20px;
+  font-style: normal;
+  margin: 1rem auto;
+
+}

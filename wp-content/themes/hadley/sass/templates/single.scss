@@ -1,0 +1,10 @@
+/**
+ * Single
+ */
+
+/*
+Show the featured image (after we hide the main image),
+to work around the problem of an .alignleft (floated) image, 
+which we can't move out of the <p> tag.
+*/
+.books__featuredimg {}
