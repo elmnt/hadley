@@ -18,8 +18,6 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
-<p>page.php</p>
-
 	<div class="col-8">
 
 		<div id="primary" class="content-area">

@@ -13,8 +13,6 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
-<p>archive.php</p>
-
 	<h1 class="page-title blog__title">Blog</h1>
 
 	<div class="col-8">

@@ -42,7 +42,7 @@
   			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'hadley' ) ); ?>"><?php printf( esc_html__( 'Powered by %s', 'hadley' ), 'WordPress' ); ?></a>
   			<!-- <span class="sep"> | </span> -->
         <br>
-  			<?php printf( esc_html__( 'Theme: %1$s by %2$s', 'hadley' ), 'Hadley', '<a href="http://elmnt.com" rel="designer">elmnt</a>' ); ?>
+        <?php printf( esc_html__( 'Theme: %1$s by %2$s', 'hadley' ), 'Hadley', '<a href="http://elmnt.com" rel="designer">elmnt</a>' ); ?>
   		</div><!-- .site-info -->
 
     </div><!-- /.grid -->

@@ -19,66 +19,114 @@ Site branding (name/tagline) on front-page.php
   height: auto;
 }
 
-.home .site-branding {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20px;
-  text-align: left;
+
+
+
+/**
+ * Site title & description
+ * mobile first and desktop settings
+ */
+
+// mobile first
+.home .site-branding--mobile,
+.home .site-title--mobile,
+.home .site-description--mobile {
+  display: block;
 }
 
-.home .site-branding .site-title {
-   font-family: $sans;
-   font-weight: normal;
-   font-weight: $fw-normal;
-   font-size: $h4;
-   margin: 0;
-
-   a {
-      color: $base-text-color;
-      text-decoration: none;
-   }
-
-   @media only screen and (min-width: 800px) {
-      font-size: $h1-mobile;
-      margin: 0;
-   }
-
-   @media only screen and (min-width: 1200px) {
-      font-size: $h1;
-      margin: 0;
-   }
-
+.home .site-branding--mobile {
+  margin-top: 2rem;
 }
-
-.home .site-branding .site-description {
+.home .site-title--mobile {
+  margin-bottom: .5rem;
+}
+.home .site-description--mobile {
   font-family: $sans;
-  color: $base-text-color;
-  font-size: 1rem;
-  font-style: normal;
-  margin: 0;
+}
 
-  @media only screen and (min-width: 800px) {
-    font-size: 1.25rem;
+// hide the desktop version
+.home .site-branding,
+.home .site-title,
+.home .site-description {
+  display: none;
+}
+
+/*
+.front-page__title {
+  display: none;
+}
+*/
+
+@media only screen and (min-width: 600px){
+  
+  // hide the mobile version
+  .home .site-branding--mobile,
+  .home .site-title--mobile,
+  .home .site-description--mobile {
+    display: none;
+  }
+
+  // show the desktop version
+  .home .site-branding,
+  .home .site-title,
+  .home .site-description {
+    display: block;
+  }
+
+  .home .site-branding {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    text-align: left;
+  }
+  .home .site-branding .site-title {
+     font-family: $sans;
+     font-weight: normal;
+     font-weight: $fw-normal;
+     font-size: $h4;
+     margin: 0;
+     a {
+        color: $base-text-color;
+        text-decoration: none;
+     }
+     @media only screen and (min-width: 800px) {
+        font-size: $h1-mobile;
+        margin: 0;
+     }
+     @media only screen and (min-width: 1200px) {
+        font-size: $h1;
+        margin: 0;
+     }
+  }
+  .home .site-branding .site-description {
+    font-family: $sans;
+    color: $base-text-color;
+    font-size: 1rem;
+    font-style: normal;
     margin: 0;
+    @media only screen and (min-width: 800px) {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+    @media only screen and (min-width: 1200px) {
+      font-size: 1.5rem;
+    }
+  }
+  .home .site-branding .site-title span {
+     margin-bottom: 2px;
+  }
+  .home .site-branding .site-title span,
+  .home .site-branding .site-description span {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, .85);
   }
 
-  @media only screen and (min-width: 1200px) {
-    font-size: 1.5rem;
-  }
-
 }
 
-.home .site-branding .site-title span {
-   margin-bottom: 2px;
-}
 
-.home .site-branding .site-title span,
-.home .site-branding .site-description span {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: rgba(255, 255, 255, .85);
-}
+
 
 // ----------- The front-page short 'intro' message
 // ----------- (pulled from the Home - front-page excerpt)

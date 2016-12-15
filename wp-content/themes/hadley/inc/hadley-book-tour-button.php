@@ -14,8 +14,8 @@ class hbtb_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'hbtb_widget',
-      __('Hadley Book Tour Button', 'translation_domain'), // Name
-      array('description' => __('Displays a "Book Tour" button on every page', 'translation_domain'),)
+      __('Hadley Book Tour Button', 'hadley'), // Name
+      array('description' => __('Displays a "Book Tour" button on every page', 'hadley'),)
     );
   }
 
@@ -59,7 +59,7 @@ class hbtb_widget extends WP_Widget {
   */
   //wp_enqueue_script( 'hadley-btb-control', get_template_directory_uri() . '/js/hadley-btb-control.js', array(), '001', true );
 
-  echo __( '<div class="container--btbutton"><div class="wrap"><div class="grid center"><a id="booktour_button" href="/'.$page_link.'/" class="button button--trans">'.$title.'</a></div></div></div>', 'hadley' );
+  echo __( '<div class="container--btbutton"><div class="wrap"><div class="grid center"><a id="booktour_button" href="/'. $page_link .'" class="button button--trans">'. $title .'</a></div></div></div>', 'hadley' );
     echo $args['after_widget'];
   }
 

@@ -12,8 +12,8 @@ class hsmi_widget extends WP_Widget {
   function __construct() {
     parent::__construct(
       'hsmi_widget',
-      __('Hadley Social Media Icons', 'translation_domain'), // Name
-      array('description' => __('Links to Author social media profiles', 'translation_domain'),)
+      __('Hadley Social Media Icons', 'hadley'), // Name
+      array('description' => __('Links to Author social media profiles', 'hadley'),)
     );
   }
 

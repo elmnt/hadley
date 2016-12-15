@@ -82,10 +82,13 @@ function hadley_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
+	/* Don't want the user to change the background color
 	add_theme_support( 'custom-background', apply_filters( 'hadley_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+	*/
+
 }
 endif;
 add_action( 'after_setup_theme', 'hadley_setup' );

@@ -14,8 +14,7 @@
 	<header class="entry-header">
 
 		<?php /*the_title( '<h1 class="entry-title">', '</h1>' );*/ ?>
-
-		<h3><?php bloginfo( 'name' ); ?></h3>
+		<!--<h3 class="front-page__title"><?php /*bloginfo( 'name' );*/ ?></h3>-->
 
 		<?php
 			/*

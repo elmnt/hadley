@@ -9,6 +9,9 @@
  * @package hadley
  */
 
+
+// echo esc_url( get_template_directory_uri() )
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -70,7 +73,7 @@
 
 		<nav class="navmobile cf"></nav>
 
-		<!-- <img class="header__searchicon" src="<?php /*bloginfo('template_directory');*/ ?>/images/search-icon.svg" onerror="this.src='<?php /*bloginfo('template_directory');*/ ?>/images/search-icon.png'"> -->
+		<!-- <img class="header__searchicon" src="<?php /*echo esc_url( get_template_directory_uri() );*/ ?>/images/search-icon.svg" onerror="this.src='<?php /*echo esc_url( get_template_directory_uri() );*/ ?>/images/search-icon.png'"> -->
 
 	</div><!-- /.grid -->
 	</div><!-- /.wrap -->
@@ -90,12 +93,13 @@
 		<?php if ( get_header_image() ): ?>
 		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>">
 		<?php else: ?>
-		<img src="<?php bloginfo('template_directory'); ?>/images/unsplash-1400x700-3.jpg" alt="<?php bloginfo( 'name' ); ?>">
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/unsplash-1400x700-3.jpg" alt="<?php bloginfo( 'name' ); ?>">
 		<?php endif; ?>
-
+		
+		<?php /* Hide this on mobile, mobile version is in front-page.php */ ?>
 		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
+			<?php /*if ( is_front_page() && is_home() ):*/ ?>
+			<?php if ( is_front_page() ) : ?>
 				<h1 class="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
 			<?php else : ?>
 				<p class="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></p>

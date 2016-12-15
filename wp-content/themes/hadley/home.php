@@ -15,18 +15,16 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
-<p>home.php</p>
-
 	<h1 class="page-title blog__title">Blog</h1>
 
 	<div class="col-8">
 
 		<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		
+
 		<?php /* Get an include to add a select menu to filter Blog subcategories */ ?>
 		<?php include( plugin_dir_path( __FILE__ ) . 'inc/blog-filter.php'); ?>
-
+		
 			<?php
 			query_posts('cat=9');
 			if ( have_posts() ) :

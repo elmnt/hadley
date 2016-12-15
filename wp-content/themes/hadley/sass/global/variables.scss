@@ -16,8 +16,7 @@ $base-border-radius: 4px;
 // ----------- Some Random A11y Color Palettes
 // https://www.randoma11y.com
 
-/*
-
+/**/
 .black { color: #181332; }
 .blue { color: #507cf0; }
 .bg-black { background-color: #181332; }
@@ -52,15 +51,12 @@ $ra-black:          #1a251d;
 
 $ra-aquamarine:   #8cd7d1;
 $ra-royal-purple: #133192;
-
-*/
-
-// pull the variable settings from above and activate them here:
-$ra-aquamarine:   #8cd7d1;
-$ra-royal-purple: #133192;
+/**/
 
 // colors
-$brand-color-1: #a7be80;
+// $brand-color-1: #a7be80;
+
+$brand-color-1: darken($ra-asparagus, 20%);
 $brand-color-2: darken($brand-color-1, 25%);
 
 $site-color-1: #f6f6f6;

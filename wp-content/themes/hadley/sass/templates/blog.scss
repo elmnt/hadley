@@ -1,3 +1,10 @@
 /**
  * Blog
  */
+
+// The page header for category archives in the Blog feed (home.php)
+.blog .blog__categories {
+  border-bottom: 2px solid $base-border-color;
+  @extend .pb2;
+  @extend .mb3;
+}

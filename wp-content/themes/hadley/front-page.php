@@ -13,28 +13,46 @@ get_header('frontpage'); ?>
 <div class="wrap">
 <div class="grid">
 
-	<!-- <div class="single-column"> -->
-
-		<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+	<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		
+		<?php
+		/*
+		Hide the overlay text on the front-page image, 
+		in the header, on mobile, and show it here.
+		*/
+		?>
+		<div class="site-branding--mobile">
+			<?php /*if ( is_front_page() && is_home() ):*/ ?>
+			<?php if ( is_front_page() ): ?>
+				<h1 class="site-title--mobile"><?php bloginfo( 'name' ); ?></h1>
+			<?php else : ?>
+				<h4 class="site-title--mobile"><?php bloginfo( 'name' ); ?></h4>
 			<?php
-			while ( have_posts() ) : the_post();
+			endif;
 
-				get_template_part( 'template-parts/content', 'front-page' );
+			$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) : ?>
+				<p class="site-description--mobile"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+			<?php
+			endif; ?>
+		</div><!-- /.site-branding--mobile -->	
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+		<?php
+		while ( have_posts() ) : the_post();
 
-			endwhile; // End of the loop.
-			?>
+			get_template_part( 'template-parts/content', 'front-page' );
 
-		</main><!-- #main -->
-		</div><!-- #primary -->
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
-	<!-- </div>/.single-column -->
+		endwhile; // End of the loop.
+		?>
+
+	</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php /*get_sidebar();*/ ?>
 

@@ -40,7 +40,7 @@
 article.post {
   padding-bottom: 2rem;
   margin-bottom: 1.75rem;
-  border-bottom: 2px solid $base-border-color;
+  border-bottom: 1px solid $base-border-color;
 
   &:last-of-type {
     border-bottom: none;
@@ -48,7 +48,7 @@ article.post {
   }
 
   @media only screen and (min-width: 800px) {
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
     margin-bottom: 3.5rem;
   }
 
@@ -96,9 +96,9 @@ article.post {
 
 // article styles for the 'articles' posts only
 .category-articles article.post {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid $base-border-color;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 
   &:last-of-type {
     border-bottom: none;

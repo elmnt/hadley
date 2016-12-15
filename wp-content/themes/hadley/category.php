@@ -13,8 +13,6 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
-<p>category.php</p>
-
 <?php
 /*
 Get the category name, and set it to a variable.
@@ -48,6 +46,13 @@ foreach( $categories as $childcat) {
 					<h1 class="page-title title__category-page"><?php echo $thecatvar; ?></h1>
 					<?php endif; ?>
 
+					<?php /* Get an include to add a select menu to filter Blog subcategories */ ?>
+					<?php 
+					if( $thecatvar == 'Blog' ){
+					include( plugin_dir_path( __FILE__ ) . 'inc/blog-filter.php'); 
+					}
+					?>
+
 					<?php
 						/* 
 						We're getting the specific category with the get_the_category() function, 
@@ -58,13 +63,6 @@ foreach( $categories as $childcat) {
 						the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					?>
 				</header><!-- .page-header -->
-
-				<?php /* Get an include to add a select menu to filter Blog subcategories */ ?>
-				<?php 
-				if( $thecatvar == 'Blog' ){
-				include( plugin_dir_path( __FILE__ ) . 'inc/blog-filter.php'); 
-				}
-				?>
 
 				<?php
 				/* Start the Loop */
