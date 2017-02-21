@@ -71,7 +71,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
  */
 @import "vendor/form-hack";
 @import "vendor/hamburgers/hamburgers";
-@import "vendor/font-awesome";
+//@import "vendor/font-awesome";
 //@import "vendor/responsiveslides";
 //@import "vendor/accordions";
 
@@ -88,6 +88,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import "layout/wrappers";
 @import "layout/grid";
 @import "layout/header";
+@import "layout/header-frontpage";
 @import "layout/footer";
 @import "layout/sidebar";
 @import "layout/nav";

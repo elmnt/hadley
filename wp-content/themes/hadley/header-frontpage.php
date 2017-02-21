@@ -24,35 +24,16 @@
 
 <?php wp_head(); ?>
 
-<style>
-/* always show window width
-#checkw {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  border: 1px solid red;
-  background: yellow;
-  color: red;
-  padding: 10px 15px;
-  z-index: 99999 !important;
-  font-size: 13px;
-  line-height: 1em;
-}
-*/
-</style>
-
 </head>
 
 <body <?php body_class(); ?>>
 
-<!-- <div id="checkw"></div> -->
-
 <div id="page" class="site">
-	
+
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'hadley' ); ?></a>
 
 	<header id="masthead" class="site-header header" role="banner">
-	
+
 	<div class="container--nav">
 	<div class="wrap wrap--nav">
 	<div class="grid">
@@ -73,29 +54,27 @@
 
 		<nav class="navmobile cf"></nav>
 
-		<!-- <img class="header__searchicon" src="<?php /*echo esc_url( get_template_directory_uri() );*/ ?>/images/search-icon.svg" onerror="this.src='<?php /*echo esc_url( get_template_directory_uri() );*/ ?>/images/search-icon.png'"> -->
-
 	</div><!-- /.grid -->
 	</div><!-- /.wrap -->
 	</div><!-- /.container -->
-		
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
 
 	<div class="container--full">
-	<div class="wrap--front-page">
+	<div class="wrap--header-frontpage">
 
 		<?php /* Show the optional 'Book Tour' button */ ?>
 		<?php dynamic_sidebar( 'book-tour' ); ?>
 
 		<?php /* If the Header Image was added in the Customizer */ ?>
 		<?php if ( get_header_image() ): ?>
-		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>">
+		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" class="fit">
 		<?php else: ?>
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/unsplash-1400x700-3.jpg" alt="<?php bloginfo( 'name' ); ?>">
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/unsplash-1400x700-3.jpg" alt="<?php bloginfo( 'name' ); ?>" class="fit">
 		<?php endif; ?>
-		
+
 		<?php /* Hide this on mobile, mobile version is in front-page.php */ ?>
 		<div class="site-branding">
 			<?php /*if ( is_front_page() && is_home() ):*/ ?>
@@ -113,5 +92,5 @@
 			endif; ?>
 		</div><!-- /.site-branding -->
 
-	</div><!-- /.wrap--front-page -->
+	</div><!-- /.wrap--header-frontpage -->
 	</div><!-- /.container--branding -->

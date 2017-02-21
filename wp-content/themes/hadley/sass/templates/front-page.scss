@@ -2,25 +2,6 @@
  * Front Page (front-page.php)
  */
 
-/*
-Site branding (name/tagline) on front-page.php
-( pulled out of the <header> in header-frontpage.php )
-*/
-
-// the container
-.wrap--front-page {
-   @extend .wrap;
-   max-width: $frontpage-max-width;
-   position: relative;
-}
-
-.wrap--front-page img {
-  width: 100%;
-  height: auto;
-}
-
-
-
 
 /**
  * Site title & description
@@ -58,7 +39,7 @@ Site branding (name/tagline) on front-page.php
 */
 
 @media only screen and (min-width: 600px){
-  
+
   // hide the mobile version
   .home .site-branding--mobile,
   .home .site-title--mobile,
@@ -124,8 +105,6 @@ Site branding (name/tagline) on front-page.php
   }
 
 }
-
-
 
 
 // ----------- The front-page short 'intro' message

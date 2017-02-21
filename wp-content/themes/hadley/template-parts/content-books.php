@@ -20,16 +20,19 @@
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
 
-		/* Leave off the post date
+		/*
+		Leave off the post date:
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php hadley_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
-		endif;*/ ?>
+		endif;
+		*/
+		?>
 
 	</header><!-- .entry-header -->
-			
+
 	<div class="entry-content">
 
 		<div class="grid">
@@ -49,7 +52,7 @@
 
 			<?php /* Check for either content or excerpt, and get the right one */ ?>
 			<?php get_template_part( 'template-parts/content', 'content-excerpt' ); ?>
-			
+
 			<?php /* Generate a search link for Indie Bound */
 			$thistitle = get_the_title();
 			$fixtitle = str_replace(" ","+",$thistitle);

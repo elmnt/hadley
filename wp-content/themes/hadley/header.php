@@ -44,24 +44,23 @@
 <!-- <div id="checkw"></div> -->
 
 <div id="page" class="site">
-	
+
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'hadley' ); ?></a>
 
 	<header id="masthead" class="site-header header" role="banner">
-	
+
 	<div class="container--nav">
 	<div class="wrap wrap--nav">
 	<div class="grid">
 
-	  <div class="navmobile-trigger">
-	    <button class="hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
-	      <span class="hamburger-box">
-	        <span class="hamburger-inner"></span>
-	      </span>
-	    </button>
-	  </div>
+		<div class="navmobile-trigger">
+		<button class="hamburger hamburger--squeeze" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+		  <span class="hamburger-box">
+		    <span class="hamburger-inner"></span>
+		  </span>
+		</button>
+		</div>
 
-		<?php /* main-navigation is core WordPress navigation class */ ?>
 		<nav id="site-navigation" class="main-navigation navmain" role="navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav>
@@ -73,11 +72,11 @@
 	</div><!-- /.container -->
 
 	<?php /* Get the optional 'Book Tour' button, as long as we're not on the Bio page */
-  if ( !is_page('bio') ) {
-  	dynamic_sidebar( 'book-tour' );
-  }
+  	if ( !is_page('bio') ) {
+  		dynamic_sidebar( 'book-tour' );
+  	}
 	?>
-	
+
 	<div class="container--branding">
 	<div class="wrap">
 	<div class="grid">
@@ -85,7 +84,7 @@
 		<div class="site-branding">
 
 			<?php if ( is_front_page() && is_home() ) : ?>
-				
+
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 				$description = get_bloginfo( 'description', 'display' );
@@ -102,7 +101,7 @@
 				The masthead image uses our secondary Featured Image from the Bio page,
 				with the (REQUIRED) plugin multiple-post-thumbnails
 				*/
-				if (class_exists('MultiPostThumbnails')){ 
+				if (class_exists('MultiPostThumbnails')){
 					$secondary_image_url = MultiPostThumbnails::get_post_thumbnail_url(get_post_type(),'secondary-image');
 				}
 				?>
@@ -118,7 +117,7 @@
 					/* WPCS: xss ok. */
 				}
 				?>
-			
+
 			<?php endif; ?>
 
 		</div><!-- .site-branding -->
@@ -126,7 +125,7 @@
 	</div>
 	</div>
 	</div><!-- /.container -->
-		
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

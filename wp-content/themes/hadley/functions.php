@@ -1,59 +1,35 @@
 <?php
 /**
  * hadley functions and definitions.
- *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
  * @package hadley
  */
 
 
 if ( ! function_exists( 'hadley_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+
 function hadley_setup() {
 
-	/*
-	 * Add support for post-formats
- 	 */
+	// Add support for post-formats
 	add_theme_support( 'post-formats', array('link', 'audio', 'video') );
 	add_post_type_support( 'post', 'post-formats' );
 
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on hadley, use a find and replace
-	 * to change 'hadley' to the name of your theme in all the template files.
-	 */
+	// Make theme available for translation.
 	load_theme_textdomain( 'hadley', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded title tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
+	// Let WordPress manage the document title.
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
+	// Enable support for Post Thumbnails on posts and pages.
 	add_theme_support( 'post-thumbnails' );
 
 	/*
-   * Enable multiple-post-thumbnails plugin
-   * to display our header image on the Bio page
- 	 */
+	 * Enable multiple-post-thumbnails plugin
+	 * to display our header image on the Bio page
+	 */
 	if (class_exists('MultiPostThumbnails')) {
 		new MultiPostThumbnails(
 		  array(
@@ -64,14 +40,14 @@ function hadley_setup() {
 		);
 	}
 
-	// This theme uses wp_nav_menu() in one location.
+	// wp_nav_menu()
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'hadley' ),
 	) );
 
 	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
+	 * Switch default core markup for search form, comment form,
+	 * and comments to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
 		'search-form',
@@ -81,8 +57,9 @@ function hadley_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	/* Don't want the user to change the background color
+	// WordPress core custom background feature.
+	// Turned off (don't want the user to change the background color)
+	/*
 	add_theme_support( 'custom-background', apply_filters( 'hadley_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
@@ -93,24 +70,26 @@ function hadley_setup() {
 endif;
 add_action( 'after_setup_theme', 'hadley_setup' );
 
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- *
  * Priority 0 to make it available to lower priority callbacks.
- *
  * @global int $content_width
  */
+/* Why is this still here in 2017?
 function hadley_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'hadley_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'hadley_content_width', 0 );
+*/
 
 
-/* Not a fan
+/*
+Don't want this turned on for now:
 add_action( 'init', 'cd_add_editor_styles' );
+*/
 /**
  * Apply theme's stylesheet to the visual editor.
- *
  * @uses add_editor_style() Links a stylesheet to visual editor
  * @uses get_stylesheet_uri() Returns URI of theme stylesheet
  */
@@ -123,11 +102,9 @@ function cd_add_editor_styles() {
 
 /**
  * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function hadley_widgets_init() {
-	
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'hadley' ),
 		'id'            => 'sidebar-1',
@@ -186,7 +163,9 @@ function hadley_widgets_init() {
 add_action( 'widgets_init', 'hadley_widgets_init' );
 
 
-// Add some new custom image sizes
+/**
+ * Add some new custom image sizes
+ */
 if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'new-size-s', 150, 300 );
 	add_image_size( 'new-size-m', 300, 600 );
@@ -204,7 +183,9 @@ $newsizes = array_merge($sizes, $addsizes);
 }
 
 
-// Add filter to remove the 'Tag:' text on tag archives
+/**
+ * Add filter to remove the 'Tag:' text on tag archives
+ */
 add_filter( 'get_the_archive_title', function ($title) {
 	if ( is_category() ) {
 		$title = single_cat_title( '', false );
@@ -231,62 +212,47 @@ function hadley_scripts() {
 	wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.12.4', true);
 	wp_enqueue_script('jquery');
 
-	// jQuery for _s navigation (NOT USING THIS)
-	// wp_enqueue_script( 'hadley-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'hadley-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	// hadley home page
-	// wp_register_script( 'hadleyhome', get_template_directory_uri() . '/js/hadley-home.js', array(), '001', true );
 
 	// misc hadley settings
 	wp_enqueue_script( 'hadleysettings', get_template_directory_uri() . '/js/hadley-settings.js', array(), '001', true );
 
-	// fontawesome
+	// fontawesome - Not shipping with v1.0.0 - Keep it light
 	// wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/86e1502599.js', false, '1.6.24', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// conditional load
-	if ( is_page( 'Home' ) ) {
-	  wp_enqueue_script('hadleyhome');
-	}
-
+	// Conditional load
+	// if ( is_page( 'Page' ) ) {
+	//   wp_enqueue_script('script-name');
+	// }
 
 }
 add_action( 'wp_enqueue_scripts', 'hadley_scripts' );
 
 
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Custom functions that act independently of the theme templates.
- */
+// Custom functions that act independently of the theme templates.
 require get_template_directory() . '/inc/extras.php';
 
-/**
- * Customizer additions.
- */
+// Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
 
-/**
- * Get any baked-in custom Hadley plugins
- */
+// User can add a custom 'Book Tour' button
 require get_template_directory() . '/inc/hadley-book-tour-button.php';
+
+// User bio info showing in the sidebar
 require get_template_directory() . '/inc/hadley-sidebar-bio.php';
+
+// Add social media links
 require get_template_directory() . '/inc/hadley-social-icons.php';

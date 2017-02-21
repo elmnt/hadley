@@ -117,7 +117,7 @@ $global-easing:      ease-out;
 
 // ----------- base/type
 
-$p-margin:           0 0 2rem 0; 
+$p-margin:           0 0 2rem 0;
 $p-padding:          0;
 
 $p-lead-font-family: $serif;
@@ -201,7 +201,7 @@ $img-vertical-align: middle;
 // ----------- base/figure
 
 $figure-margin:               0 0 2rem 0;
-$figure-padding:              0; 
+$figure-padding:              0;
 $figcaption-margin:           1px 0 0 0;
 $figcaption-padding:          1rem;
 $figcaption-background-color: $base-text-color;
@@ -231,7 +231,8 @@ $button-font-weight:      $fw-bold;
 $button-font-size:        .8rem;
 $button-letter-spacing:   .5px;
 $button-padding:          1.45rem 3rem 1.35rem 3rem;
-$button-margin:          .5rem 0;
+$button-margin:           .5rem 0;
+$button-border:           2px solid $button-background-color;
 
 // button states
 
@@ -239,11 +240,13 @@ $button-color-visited:            $button-color;
 $button-background-color-visited: $button-background-color;
 $button-color-hover:              $button-color;
 $button-background-color-hover:   darken($button-background-color, 25%);
+$button-border-hover:             2px solid $button-background-color-hover;
 
 // big buttons
 
-$button-big-padding:   1.5rem 3rem;
-$button-big-font-size: 1rem;
+$button-big-padding:      1.5rem 3rem;
+$button-big-font-size:    1rem;
+$button-big-border-width: 3px;
 
 // small buttons
 
@@ -252,7 +255,7 @@ $button-small-font-size: .65rem;
 
 // white transparent button
 $button-trans-color:            white;
-$button-trans-background-color: rgba(0,0,0,.05);
+$button-trans-background-color: rgba(0,0,0,.25);
 $button-trans-border:           2px solid white;
 
 // & hover state
@@ -260,24 +263,14 @@ $button-trans-color-hover:             $brand-color-1;
 $button-trans-background-color-hover:  white;
 $button-trans-border-hover:            2px solid white;
 
-// colored transparent button
-$button-trans-dark-color:  $brand-color-1;
-$button-trans-dark-border: 2px solid $brand-color-1;
-
-// & hover state
-$button-trans-dark-color-hover:  $brand-color-2;
-$button-trans-dark-border-hover: 2px solid $brand-color-2;
-
-// big transparent button
-$button-trans-big-border-width: 4px;
-
 // buttons with a font-awesome icon
-
+/*
 $button-hasicon-padding:        1.35rem 2rem 1.125rem 2rem;
 $button-hasicon-line-height:    1rem;
 $button-hasicon-vertical-align: top;
 $button-hasicon-font-size:      $button-hasicon-line-height;
 $button-hasicon-icon-margin:    3px;
+*/
 
 // ----------- components/tables
 
@@ -311,7 +304,7 @@ $admin-table-thead-background-color: $base-text-color;
 
 /*
 
-Setting container-max-width at 100% allows for edge-to-edge layout 
+Setting container-max-width at 100% allows for edge-to-edge layout
 (and edge-to-edge background color even when a wrap is used)
 The (optional) wrap sets a max content width
 
@@ -366,20 +359,20 @@ $navmobile-bottom-margin:   0;
 $navmobile-bottom-border:   none;
 $navmain-text-transform:    none;
 $navmain-holder-background: white;
-$navmain-button-pad:        1.5rem 1rem 1.25rem 1rem; 
-$navmain-background:        white; 
-$navmain-background-hover:  white; 
-$navmain-color:             $base-text-color; 
+$navmain-button-pad:        1.5rem 1rem 1.25rem 1rem;
+$navmain-background:        white;
+$navmain-background-hover:  white;
+$navmain-color:             $base-text-color;
 $navmain-color-hover:       $site-color-3;
 
 // desktop nav hides, mobile nav shows at this width
 $navmain-switch-width: $bp-tablet-portrait;
 
 $navmobile-text-align:            center;
-$navmobile-background:            white; 
+$navmobile-background:            white;
 $navmobile-border:                1px solid $site-color-1;
 $navmobile-link-color:            $base-text-color;
-$navmobile-link-padding:          1rem; 
+$navmobile-link-padding:          1rem;
 $navmobile-link-background:       white;
 $navmobile-link-color-hover:      black;
 $navmobile-link-background-hover: #f6f6f6;

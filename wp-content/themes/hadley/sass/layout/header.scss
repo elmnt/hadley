@@ -2,12 +2,12 @@
  * Layout - Header
  */
 
-// ----------- Force the z-index on the header content, 
+// ----------- Force the z-index on the header content,
 // ----------- so the menus are always on top.
 
-.header, 
-.header * { 
-  @extend .z7; 
+.header,
+.header * {
+  @extend .z7;
 }
 
 .site-branding {
@@ -20,8 +20,14 @@
 .site-title {}
 .site-description {}
 
-// ----------- The optional Book Tour button that shows up in the header when the widget is active
-
+/*
+Container class for the optional Book Tour button that shows up
+in the header when the widget is active in header.php template.
+It also appears in header-frontpage.php template.
+The partial header-frontpage.scss has this class too,
+nested inside wrap--header-frontpage, for added specificity.
+It needs unique placement in the home page header (header-frontpage.php).
+*/
 .container--btbutton {
   margin-top: 1rem;
   margin-bottom: 1rem;

@@ -1,9 +1,6 @@
 <?php
 /**
  * The template for displaying a static front page.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package hadley
  */
 
@@ -15,11 +12,11 @@ get_header('frontpage'); ?>
 
 	<div id="primary" class="content-area">
 	<main id="main" class="site-main" role="main">
-		
+
 		<?php
 		/*
-		Hide the overlay text on the front-page image, 
-		in the header, on mobile, and show it here.
+		We're hiding the overlay text on the front-page image,
+		in the header, on mobile, and showing it here.
 		*/
 		?>
 		<div class="site-branding--mobile">
@@ -36,7 +33,7 @@ get_header('frontpage'); ?>
 				<p class="site-description--mobile"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div><!-- /.site-branding--mobile -->	
+		</div><!-- /.site-branding--mobile -->
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -56,7 +53,7 @@ get_header('frontpage'); ?>
 
 <?php /*get_sidebar();*/ ?>
 
-<!-- add these closing tags since they're normally in the sidebar, which we've removed -->
+<?php /* Add these closing tags since they're normally in the sidebar, which we've removed. */ ?>
 </div><!-- /.grid -->
 </div><!-- /.wrap -->
 </div><!-- /.container -->

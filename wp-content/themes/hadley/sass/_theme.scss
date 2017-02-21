@@ -1,7 +1,7 @@
 /**
  * Hadley theme styles
- * 
- * This is just a sandbox to work out styles 
+ *
+ * This is just a sandbox to work out styles
  * before dumping them into their appropriate partials.
  */
 
@@ -9,7 +9,7 @@
 .blog .content-area {
    padding-top: 3rem;
    border-top: 2px solid #ccc;
-   margin-top: 2rem; 
+   margin-top: 2rem;
 }
 */
 
@@ -18,7 +18,7 @@
 $debug: false;
 
 @if $debug == true {
-  
+
   * {
     outline: 1px solid orange;
   }
@@ -27,3 +27,66 @@ $debug: false;
   }
 
 }
+
+#comments .required {
+    color: red;
+}
+
+#comments ul.comment-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    /*
+    > li > ul.children {
+        margin-left: 0;
+        padding-left: 0;
+        border: 1px solid pink;
+    }
+    */
+
+    ul.children {
+        list-style: none;
+        margin-left: 20px;
+        padding-left: 20px;
+        border-left: 2px solid #ccc;
+    }
+}
+
+#comments ul.comment-list li {
+    //border: 1px solid pink;
+    margin: 1rem 0;
+}
+
+#comments .comment-content p {
+    margin-bottom: .5rem;
+}
+
+input [type="submit"],
+#submit,
+.submit {
+    @extend .button;
+}
+
+#comments .comment-author {
+
+    img.avatar {
+        margin-right: 1rem;
+    }
+
+    img.avatar,
+    b.fn,
+    span.says {
+        display: inline-block;
+    }
+
+    margin-bottom: 1rem;
+
+}
+
+/*
+<div class="comment-author vcard">
+<img alt="" src="http://2.gravatar.com/avatar/58ec733e2356433d0ec9af50ef904adb?s=64&amp;d=mm&amp;r=g" srcset="http://2.gravatar.com/avatar/58ec733e2356433d0ec9af50ef904adb?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">
+<b class="fn">Greg Smith</b> <span class="says">says:</span>
+</div>
+*/

@@ -1,0 +1,40 @@
+/**
+ * Layout - Header: Front Page
+ * Styles specific to the header-frontpage.php partial
+ */
+
+/*
+Site branding (name/tagline) on front-page.php
+( pulled out of the <header> in header-frontpage.php )
+*/
+
+// the container
+.wrap--header-frontpage {
+   @extend .wrap;
+   max-width: $frontpage-max-width;
+   position: relative;
+
+    .container--btbutton {
+
+      // Mobile first
+      // Undo the sub-page margin settings
+      margin-top: 2rem;
+      margin-bottom: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      // Desktop
+      @media only screen and (min-width: 600px){
+        position: absolute;
+        left: 0;
+        right: 0;
+        // Reset the margins
+        margin-top: 2rem;
+      }
+
+    }
+
+}

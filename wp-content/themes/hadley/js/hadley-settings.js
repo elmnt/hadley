@@ -5,13 +5,7 @@
 
 
 /**
- * load, resize, scroll event
- * jQuery(window).on("load resize scroll",function(e){});
- */
-
-
-/**
- * Global scroll-to-top anchor 
+ * Global scroll-to-top anchor
  * Must add 'scrollanchor' class to the a tag
  */
 jQuery(".scrollanchor").click(function(e){
@@ -26,6 +20,8 @@ jQuery(".scrollanchor").click(function(e){
  * Hadley Navigation
  */
 jQuery(function($){
+
+    "use strict";
 
 	// populate the mobile nav
 	$(".navmobile").html($(".navmain").html());
@@ -48,7 +44,7 @@ jQuery(function($){
 	  // Do something else, like open/close menu
 	});
 
-  /* 
+  /*
   Add a span around the #primary-menu link text,
   so we can add an underline to the 'active' link.
   This is a simpler solution than extending the Walker class in WP

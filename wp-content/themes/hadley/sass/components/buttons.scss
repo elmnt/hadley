@@ -6,20 +6,21 @@
 
 button,
 .button {
-  display: inline-block; 
-  color: $button-color; 
+  display: inline-block;
+  color: $button-color;
   background: $button-background-color;
-  text-decoration: none; 
-  text-transform: $button-text-transform; 
-  text-align: center; 
-  font-family: $sans; 
-  font-weight: $button-font-weight; 
-  font-size: $button-font-size; 
+  text-decoration: none;
+  text-transform: $button-text-transform;
+  text-align: center;
+  font-family: $sans;
+  font-weight: $button-font-weight;
+  font-size: $button-font-size;
   letter-spacing: $button-letter-spacing;
-  line-height: 1em; 
-  cursor: pointer; 
+  line-height: 1em;
+  cursor: pointer;
   padding: $button-padding;
   margin: $button-margin;
+  border: $button-border;
   -webkit-font-smoothing: antialiased;
   @include border-radius($base-border-radius);
   vertical-align: middle !important;
@@ -33,6 +34,7 @@ button,
   &:active {
     color: $button-color-hover;
     background: $button-background-color-hover;
+    border: $button-border-hover;
   }
 
 }
@@ -55,28 +57,29 @@ button,
 // big button
 
 .button--big {
-  @extend .button; 
+  @extend .button;
   padding: $button-big-padding;
   font-size: $button-big-font-size;
+  border-width: $button-big-border-width;
 }
 
 // small button
 
 .button--small {
-  @extend .button; 
+  @extend .button;
   padding: $button-small-padding;
   font-size: $button-small-font-size;
 }
 
-// white transparent button (on a photo)
+// white transparent button
 
 .button--trans {
-  color: $button-trans-color; 
+  color: $button-trans-color;
   background: $button-trans-background-color;
   border: $button-trans-border;
 
   &:visited {
-    color: $button-trans-color; 
+    color: $button-trans-color;
     background: $button-trans-background-color;
     border: $button-trans-border;
   }
@@ -89,57 +92,3 @@ button,
   }
 
 }
-
-// transparent button (on light color BG)
-
-.button--trans-dark {
-  color: $button-trans-dark-color; 
-  background: transparent;
-  border: $button-trans-dark-border;
-
-  &:visited {
-    color: $button-trans-dark-color; 
-    background: transparent;
-    border: $button-trans-dark-border;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    color: $button-trans-dark-color-hover;
-    background: rgba($button-trans-dark-color, 1);
-    border: $button-trans-dark-border-hover;
-  }
-
-}
-
-.button--transbig {
-  border-width: $button-trans-big-border-width;
-
-  &:visited {
-    border-width: $button-trans-big-border-width;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    border-width: $button-trans-big-border-width;
-  }
-
-}
-
-// buttons with a font-awesome icon
-/*
-.button--hasicon {
-  padding: $button-hasicon-padding;
-}
-
-.button--hasicon,
-.button--hasicon .fa {
-  line-height: $button-hasicon-line-height;
-  vertical-align: $button-hasicon-vertical-align;
-}
-
-.button--hasicon .fa {
-  font-size: $button-hasicon-font-size;
-  margin-right: $button-hasicon-icon-margin;
-}
-*/
