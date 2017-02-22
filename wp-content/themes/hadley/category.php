@@ -36,6 +36,17 @@ foreach( $categories as $childcat) {
 }
 ?>
 
+<?php
+/*
+$args=array(
+    'posts_per_page' => 50,
+    'post_type' => 'my_custom_type'
+    'category' => $cat_id,
+);
+$wp_query = new WP_Query( $args );
+*/
+?>
+
 	<div class="col-8">
 
 		<div id="primary" class="content-area">
