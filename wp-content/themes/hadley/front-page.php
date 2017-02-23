@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying a static front page.
+ * The template for displaying a static front page
  * @package hadley
  */
 

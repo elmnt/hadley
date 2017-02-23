@@ -1,11 +1,7 @@
 <?php
 /**
- * The template file for the home page.
- *
- * This page isn't used while front-page.php exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
+ * The template file for the home page
+ * Not used while front-page.php exists
  * @package hadley
  */
 
@@ -14,6 +10,8 @@ get_header(); ?>
 <div class="container">
 <div class="wrap">
 <div class="grid">
+
+<p style="color:red;">home.php</p>
 
 	<h1 class="page-title blog__title">Blog</h1>
 
@@ -24,16 +22,17 @@ get_header(); ?>
 
 		<?php /* Get an include to add a select menu to filter Blog subcategories */ ?>
 		<?php include( plugin_dir_path( __FILE__ ) . 'inc/blog-filter.php'); ?>
-		
+
 			<?php
-			query_posts('cat=9');
+
+			//query_posts('cat=9');
+
 			if ( have_posts() ) :
 
 				if ( is_home() && ! is_front_page() ) : ?>
 					<header class="page-header">
 						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 					</header>
-
 				<?php
 				endif;
 

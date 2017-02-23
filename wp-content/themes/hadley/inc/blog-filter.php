@@ -1,7 +1,6 @@
 <?php
 /**
  * Allow users to filter by child category in the Blog category
- *
  * @package hadley
  */
 ?>

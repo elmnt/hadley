@@ -1,9 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
+ * The template for displaying archive pages
  * @package hadley
  */
 
@@ -13,7 +10,10 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
-	<h1 class="page-title blog__title">Blog</h1>
+<p style="color:red;">archive.php</p>
+
+	<!-- <h1 class="page-title blog__title">Blog</h1> -->
+	<?php /* the_title( '<h1 class="entry-title">', '</h1>' ); */ ?>
 
 	<div class="col-8">
 
@@ -25,11 +25,11 @@ get_header(); ?>
 
 				<header class="page-header">
 
-					<p>Blog posts tagged with: <em><?php the_archive_title(); ?></em></p>
+					<h2>Blog posts tagged with: <em><?php the_archive_title(); ?></em></h2>
 					<?php
 					/*
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					//the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					*/
 					?>
 

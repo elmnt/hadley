@@ -13,6 +13,8 @@ get_header(); ?>
 <div class="wrap">
 <div class="grid">
 
+<p style="color:red;">category.php</p>
+
 <?php
 /*
 Get the category name, and set it to a variable.

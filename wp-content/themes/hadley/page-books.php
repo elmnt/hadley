@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Books
  * @package hadley
  */
 
@@ -16,11 +16,14 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			while ( have_posts() ) : the_post();
+			$args = array(
+				'post_type' => 'books'
+			);
+			$query = new WP_Query( $args );
 
+			if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 				get_template_part( 'template-parts/content', 'page' );
-
-			endwhile; // End of the loop.
+			endwhile; endif; wp_reset_postdata(); // End of the loop.
 			?>
 
 		</main><!-- #main -->
