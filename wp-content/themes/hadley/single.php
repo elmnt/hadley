@@ -17,22 +17,28 @@ get_header(); ?>
 
 			<?php
 
-			// Get the post type
-			$postid = get_post_type();
+			// Get all Custom Post Type UI slugs (array)
+			$cptui_types = cptui_get_post_type_slugs();
 
-			if ( in_array( $postid, $thetypes ) && $postid != 'post' ) {
+			// Get the standard WordPress post type, for this post
+			// (This will include the CPT UI post types)
+			$mytype = get_post_type( get_the_ID() );
 
-				// It's a custom post type single post
+			// Is this post one of the CPT UI post types?
+			if ( in_array( $mytype, $cptui_types ) ) {
+
+				// Yes. Get the custom content partial.
 				while ( have_posts() ) : the_post();
-					get_template_part( 'template-parts/content-single', 'custom' );
+					get_template_part( 'template-parts/content-single', $mytype );
 					the_post_navigation();
 				endwhile; // End of the loop.
 
 			} else {
 
-				// It's a (generic) single post
+				// No. Get the generic content partial.
 				while ( have_posts() ) : the_post();
-					get_template_part( 'template-parts/content-single' );
+					get_template_part( 'template-parts/content', get_post_format() );
+					the_post_navigation();
 				endwhile; // End of the loop.
 
 			}

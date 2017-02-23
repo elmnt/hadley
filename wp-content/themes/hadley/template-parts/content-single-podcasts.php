@@ -1,7 +1,7 @@
 <?php
 /**
- * Template part for displaying posts
- * @package shiz
+ * Template part for displaying individual 'podcasts' posts
+ * @package hadley
  */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -16,7 +16,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php shiz_posted_on(); ?>
+			<?php hadley_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -26,19 +26,19 @@
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'shiz' ), array( 'span' => array( 'class' => array() ) ) ),
+				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'hadley' ), array( 'span' => array( 'class' => array() ) ) ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'shiz' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hadley' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php shiz_entry_footer(); ?>
+		<?php hadley_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

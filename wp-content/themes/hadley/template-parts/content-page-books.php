@@ -3,14 +3,9 @@
  * Template part for displaying the custom 'books' feed
  * @package hadley
  */
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-<p style="color:red;">/template-parts/content-books.php</p>
+?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">','</h1>' );
@@ -20,11 +15,9 @@
 				echo '<p style="color:red;">custom post feed</p>';
 			}
 		?>
-
 	</header>
 
 	<div class="entry-content">
-
 		<div class="grid">
 
 			<div class="col-4">
@@ -65,7 +58,6 @@
 			</div><!-- /.col-8 -->
 
 		</div><!-- /.grid -->
-
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
