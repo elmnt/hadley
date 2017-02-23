@@ -3,7 +3,6 @@
  * The header for our theme
  * @package hadley
  */
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

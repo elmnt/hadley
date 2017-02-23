@@ -8,9 +8,9 @@
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				));
 
-				/* 
-				Add a 'Continue reading' link after the excerpt, 
-				but not if it's in the articles category 
+				/*
+				Add a 'Continue reading' link after the excerpt,
+				but not if it's in the articles category
 				*/
 				if( !is_category( 'articles' ) ){
 					echo '<p><a href="';

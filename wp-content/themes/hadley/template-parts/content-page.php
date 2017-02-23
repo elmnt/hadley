@@ -1,35 +1,19 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
+ * Template part for displaying page content in page.php
  * @package hadley
  */
-
-?>
-
-<?php
-/* Get the user name
-$user_info = get_userdata(1);
-$fn = $user_info->first_name;
-$ln = $user_info->last_name;
-echo '<h1 class="entry-title">'.$fn.' '.$ln.'</h1>';
-*/
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
 
 		<?php
 		/*
-		Turn off the normal page title, and use a conditional 
+		Turn off the normal page title, and use a conditional
 		that allows us to pull the user's name into the Bio page
+		the_title( '<h1 class="entry-title">', '</h1>' );
 		*/
 		?>
-		<?php /*the_title( '<h1 class="entry-title">', '</h1>' );*/ ?>
-
 		<?php if ( !is_page('bio') ): ?>
 			<h1><?php the_title(); ?></h1>
 		<?php else: ?>
@@ -47,7 +31,7 @@ echo '<h1 class="entry-title">'.$fn.' '.$ln.'</h1>';
 				'after'  => '</div>',
 			) );
 		?>
-	
+
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
@@ -67,5 +51,5 @@ echo '<h1 class="entry-title">'.$fn.' '.$ln.'</h1>';
 		</footer><!-- .entry-footer -->
 
 	<?php endif; ?>
-	
+
 </article><!-- #post-## -->

@@ -3,7 +3,6 @@
  * The template for displaying 404 pages (not found)
  * @package hadley
  */
-
 get_header(); ?>
 
 	<div id="primary" class="content-area">

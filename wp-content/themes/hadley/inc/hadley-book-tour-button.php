@@ -48,7 +48,6 @@ class hbtb_widget extends WP_Widget {
     return $instance;
   }
 
-
   // Create widget front-end
   public function widget( $args, $instance ) {
     $title = apply_filters( 'widget_title', $instance['title'] );

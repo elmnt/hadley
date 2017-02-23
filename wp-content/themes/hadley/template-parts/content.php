@@ -39,7 +39,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		
+
 		<?php if ( $thecatvar == 'books' ): ?>
 			<div class="meta__custom-holder">
 				<p class="meta__custom"><span>Publish Date:</span> <?php echo get_post_meta($post->ID, 'Books: Publish Date', true); ?></p>

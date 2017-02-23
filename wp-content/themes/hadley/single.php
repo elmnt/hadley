@@ -16,18 +16,27 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', get_post_format() );
+			// Get the post type
+			$postid = get_post_type();
 
-				/*the_post_navigation();*/
+			if ( in_array( $postid, $thetypes ) && $postid != 'post' ) {
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+				// It's a custom post type single post
+				while ( have_posts() ) : the_post();
+					get_template_part( 'template-parts/content-single', 'custom' );
+					the_post_navigation();
+				endwhile; // End of the loop.
 
-			endwhile; // End of the loop.
+			} else {
+
+				// It's a (generic) single post
+				while ( have_posts() ) : the_post();
+					get_template_part( 'template-parts/content-single' );
+				endwhile; // End of the loop.
+
+			}
+
 			?>
 
 		</main><!-- #main -->

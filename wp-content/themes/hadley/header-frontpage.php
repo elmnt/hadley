@@ -3,10 +3,7 @@
  * The header for only the front-page
  * @package hadley
  */
-
-
 // echo esc_url( get_template_directory_uri() )
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

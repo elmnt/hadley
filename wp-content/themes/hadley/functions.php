@@ -84,10 +84,8 @@ add_action( 'after_setup_theme', 'hadley_content_width', 0 );
 */
 
 
-/*
-Don't want this turned on for now:
-add_action( 'init', 'cd_add_editor_styles' );
-*/
+// Turn off theme styles in the visual editor
+// add_action( 'init', 'cd_add_editor_styles' );
 /**
  * Apply theme's stylesheet to the visual editor.
  * @uses add_editor_style() Links a stylesheet to visual editor
@@ -166,21 +164,23 @@ add_action( 'widgets_init', 'hadley_widgets_init' );
 /**
  * Add some new custom image sizes
  */
-if ( function_exists( 'add_image_size' ) ) {
-	add_image_size( 'new-size-s', 150, 300 );
-	add_image_size( 'new-size-m', 300, 600 );
-	add_image_size( 'new-size-l', 600, 900 );
-}
-add_filter('image_size_names_choose', 'my_image_sizes');
 function my_image_sizes($sizes) {
 	$addsizes = array(
 	"new-size-s" => __( "HadleySmall"),
 	"new-size-m" => __( "HadleyMedium"),
 	"new-size-l" => __( "HadleyLarge")
 );
+
 $newsizes = array_merge($sizes, $addsizes);
 	return $newsizes;
 }
+
+if ( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'new-size-s', 150, 300 );
+	add_image_size( 'new-size-m', 300, 600 );
+	add_image_size( 'new-size-l', 600, 900 );
+}
+add_filter('image_size_names_choose', 'my_image_sizes');
 
 
 /**
@@ -199,14 +199,17 @@ add_filter( 'get_the_archive_title', function ($title) {
 
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue styles and scripts
  */
-function hadley_scripts() {
+function hadley_styles() {
 
-	// main styles
+	// main style sheet
 	wp_enqueue_style( 'hadley-style', get_stylesheet_uri() );
 
-	// wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer )
+}
+add_action( 'wp_enqueue_scripts', 'hadley_styles' );
+
+function hadley_scripts() {
 
 	// load jQuery
 	wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.12.4', true);
@@ -215,6 +218,7 @@ function hadley_scripts() {
 	wp_enqueue_script( 'hadley-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	// misc hadley settings
+	// Set up concat and minify in gulpfile.js!
 	wp_enqueue_script( 'hadleysettings', get_template_directory_uri() . '/js/hadley-settings.js', array(), '001', true );
 
 	// fontawesome - Not shipping with v1.0.0 - Keep it light
@@ -224,13 +228,44 @@ function hadley_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// Conditional load
-	// if ( is_page( 'Page' ) ) {
-	//   wp_enqueue_script('script-name');
-	// }
-
 }
 add_action( 'wp_enqueue_scripts', 'hadley_scripts' );
+/*
+Conditional load option
+if ( is_page( 'Page' ) ) {
+	wp_enqueue_script('script-name');
+}
+*/
+
+
+
+
+
+/**
+ * Zac Gordon Practice
+ */
+
+// Add Filter
+// Add a body class based on post type
+/*
+function custom_body_classes( $classes ){
+
+	if ( 'page' == get_post_type() ) {
+		$classes[] = 'body-class-added-to-pages';
+	} elseif ( 'post' == get_post_type() ) {
+		$classes[] = 'body-class-added-to-posts';
+	} elseif ( 'books' == get_post_type() ) {
+		$classes[] = 'body-class-added-to-custom-post-type-books';
+	}
+
+	return $classes;
+
+}
+add_filter( 'body_class', 'custom_body_classes' );
+*/
+
+
+
 
 
 // Implement the Custom Header feature.
