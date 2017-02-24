@@ -117,7 +117,7 @@ $global-easing:      ease-out;
 
 // ----------- base/type
 
-$p-margin:           0 0 2rem 0;
+$p-margin:           0 0 1rem 0;
 $p-padding:          0;
 
 $p-lead-font-family: $serif;
@@ -131,7 +131,7 @@ $heading-font-style:      normal;
 $heading-font-weight:     normal;
 $heading-font-weight:     $fw-semibold;
 $heading-line-height:     1.25em;
-$heading-margin:          0 0 1rem 0;
+$heading-margin:          0 0 1.5rem 0;
 $heading-padding:         0;
 $heading-color:           $base-text-color;
 $heading-text-transform:  uppercase;
@@ -255,7 +255,7 @@ $button-small-font-size: .65rem;
 
 // white transparent button
 $button-trans-color:            white;
-$button-trans-background-color: rgba(0,0,0,.25);
+$button-trans-background-color: rgba(0,0,0,.125);
 $button-trans-border:           2px solid white;
 
 // & hover state
@@ -317,7 +317,7 @@ The (optional) wrap sets a max content width
 $container-max-width:  100%;
 $container-pad:        0 2em;
 $container-pad-mobile: 0 1em;
-$wrap-max-width:       1200px;
+$wrap-max-width:       1400px;
 $wrap-min-width:       100px;
 
 // center-align & middle-align box

@@ -16,13 +16,17 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php
+			/*
+			Determine if it's one of the CPT UI posts
+			( a book, an article, etc. ), or just a standard post.
+			*/
+
+			// Get the standard WordPress post type
+			// ( This will include the CPT UI post types )
+			$mytype = get_post_type( get_the_ID() );
 
 			// Get all Custom Post Type UI slugs (array)
 			$cptui_types = cptui_get_post_type_slugs();
-
-			// Get the standard WordPress post type, for this post
-			// (This will include the CPT UI post types)
-			$mytype = get_post_type( get_the_ID() );
 
 			// Is this post one of the CPT UI post types?
 			if ( in_array( $mytype, $cptui_types ) ) {

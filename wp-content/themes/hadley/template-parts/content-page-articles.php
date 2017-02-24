@@ -1,68 +1,53 @@
 <?php
 /**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
+ * Template part for displaying the custom 'articles' feed
  * @package hadley
  */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta articles__meta">
-			<?php hadley_posted_on(); ?>
-			<?php echo '&nbsp;&bull;&nbsp;' ?>
-			<em><a href="<?php echo get_post_meta($post->ID, 'Article Source Link', true); ?>"><?php echo get_post_meta($post->ID, 'Article Source', true); ?></a></em>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-		
-		<!--
-		<div class="meta__custom-holder">
-			<p class="meta__custom mt1 mb0"><?php /*echo get_post_meta($post->ID, 'Article Source', true);*/ ?></p>
-		</div>
-		<p><?php /*echo get_post_meta($post->ID, 'Article Source', true);*/ ?></p>
-		-->
-
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title title__post-link"><a href="' . get_post_meta($post->ID, 'Article Link', true) . '" rel="bookmark" target="_blank">', '&nbsp;&rarr;</a></h1>' );
-			} else {
-				the_title( '<h2 class="entry-title title__post-link"><a href="' . get_post_meta($post->ID, 'Article Link', true) . '" rel="bookmark" target="_blank">', '&nbsp;&rarr;</a></h2>' );
-			}
-		?>
-
-		<div class="meta__custom-holder">
-			<p class="meta__custom"><span><a href="<?php echo get_permalink(); ?>" rel="bookmark">Permalink &infin;</a></span></p>
-		</div>
-	
-	</header><!-- .entry-header -->
+		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+	</header>
 
 	<div class="entry-content">
-	
-		<?php /* Check for either content or excerpt, and get the right one */ ?>
-		<?php /*get_template_part( 'template-parts/content', 'content-excerpt' );*/ ?>
+		<div class="grid">
 
-		<?php /* the excerpt */
+			<?php // Get our ACF field variables for this page
+			$published      = get_field('book_published');
+			$publisher      = get_field('book_publisher');
+			$publisher_link = get_field('book_publisher_link');
+			$publisher_book = get_field('book_publisher_book');
+			$amazon_link    = get_field('book_amazon_link');
+			?>
 
-		the_content( sprintf(
-			// translators: %s: Name of current post.
-			wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'hadley' ), array( 'span' => array( 'class' => array() ) ) ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		) );
+			<?php
+			/*
+			If there's a featured image, use a two-column layout.
+			We could just allow the user to float (right/left align) the image,
+			but this is a cleaner layout, and will look better on multiple screen sizes.
+			*/
+			?>
+			<?php if ( has_post_thumbnail() ) : ?>
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hadley' ),
-			'after'  => '</div>',
-		) );
+				<div class="col-4">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('medium_large'); ?></a>
+				</div>
 
-		?>
+				<div class="col-8">
 
+					<?php // Get the post content ?>
+					<?php get_template_part( 'template-parts/content', 'page-articles-inc' ); ?>
+
+				</div><!-- /.col-8 -->
+
+			<?php else: // If no featured image, use a single column layout ?>
+
+				<?php // Get the post content ?>
+				<?php get_template_part( 'template-parts/content', 'page-articles-inc' ); ?>
+
+			<?php endif; ?>
+
+		</div><!-- /.grid -->
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

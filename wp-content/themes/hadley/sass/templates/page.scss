@@ -2,132 +2,18 @@
  * Page
  */
 
-/*
-The following styles set a page layout with a constrained width 
-on all content except images, figures & blockquotes.
-To use it, uncomment all the styles below, and reintroduce the 
-template page-bio.php (copy of the page.php template), at the root level, 
-and make sure it grabs the page-bio template part:
-
-get_template_part( 'template-parts/content', 'page-bio' );
-
-This template part is still in /template-parts, and can stay there, unused, 
-until its needed again.
-*/
 
 /*
-For single column pages, show wider figures & images in our $single-col-width,
-but keep *everything* else within a $readable-column-width.
-
-Ideally, we'd pull the figure left/right based on one constrained parent, 
-but the multiple nested content containers in WordPress make this difficult. 
-This isn't the most elegant solution (adding extra styles to every HTML tag),
-but it's specific enough, and effective.
-
-It only adds an extra 2k to the build CSS, so it's a justifiable hack 
-to get the desired output on the front-end.
+Articles (individual post content) in a page feed.
+For instance, CPT 'books' posts, in the 'Books' page
 */
+.page .site-main article {
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 2rem;
 
-/*
+    &:last-of-type {
+        border-bottom: none;
+    }
 
-// constrain the header & footer (outside of entry-content)
-.single-column .entry-header,
-.single-column .entry-footer {
-  max-width: $readable-col-width;
-  margin-left: auto;
-  margin-right: auto;
 }
-
-// let the blockquote be a little wider
-.single-column .entry-content > blockquote {
-  max-width: $readable-col-width + (($single-col-width - $readable-col-width)/2);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// constrain everything except figures & images
-.single-column .entry-content > div,
-.single-column .entry-content > span,
-.single-column .entry-content > applet,
-.single-column .entry-content > object,
-.single-column .entry-content > iframe,
-.single-column .entry-content > h1,
-.single-column .entry-content > h2,
-.single-column .entry-content > h3,
-.single-column .entry-content > h4,
-.single-column .entry-content > h5,
-.single-column .entry-content > h6,
-.single-column .entry-content > p,
-// .single-column .entry-content > blockquote,
-.single-column .entry-content > pre,
-.single-column .entry-content > a,
-.single-column .entry-content > abbr,
-.single-column .entry-content > acronym,
-.single-column .entry-content > address,
-.single-column .entry-content > big,
-.single-column .entry-content > cite,
-.single-column .entry-content > code,
-.single-column .entry-content > del,
-.single-column .entry-content > dfn,
-.single-column .entry-content > em,
-// .single-column .entry-content > img,
-.single-column .entry-content > ins,
-.single-column .entry-content > kbd,
-.single-column .entry-content > q,
-.single-column .entry-content > s,
-.single-column .entry-content > samp,
-.single-column .entry-content > small,
-.single-column .entry-content > strike,
-.single-column .entry-content > strong,
-.single-column .entry-content > sub,
-.single-column .entry-content > sup,
-.single-column .entry-content > tt,
-.single-column .entry-content > var,
-.single-column .entry-content > b,
-.single-column .entry-content > u,
-.single-column .entry-content > i,
-.single-column .entry-content > center,
-.single-column .entry-content > dl,
-.single-column .entry-content > dt,
-.single-column .entry-content > dd,
-.single-column .entry-content > ol,
-.single-column .entry-content > ul,
-.single-column .entry-content > li,
-.single-column .entry-content > fieldset,
-.single-column .entry-content > form,
-.single-column .entry-content > label,
-.single-column .entry-content > legend,
-.single-column .entry-content > table,
-.single-column .entry-content > caption,
-.single-column .entry-content > tbody,
-.single-column .entry-content > tfoot,
-.single-column .entry-content > thead,
-.single-column .entry-content > tr,
-.single-column .entry-content > th,
-.single-column .entry-content > td,
-.single-column .entry-content > article,
-.single-column .entry-content > aside,
-.single-column .entry-content > canvas,
-.single-column .entry-content > details,
-.single-column .entry-content > embed,
-// .single-column .entry-content > figure,
-// .single-column .entry-content > figcaption,
-.single-column .entry-content > footer,
-.single-column .entry-content > header,
-.single-column .entry-content > hgroup,
-.single-column .entry-content > menu,
-.single-column .entry-content > nav,
-.single-column .entry-content > output,
-.single-column .entry-content > ruby,
-.single-column .entry-content > section,
-.single-column .entry-content > summary,
-.single-column .entry-content > time,
-.single-column .entry-content > mark,
-.single-column .entry-content > audio,
-.single-column .entry-content > video {
-  max-width: $readable-col-width;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-*/

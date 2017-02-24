@@ -1,89 +1,53 @@
 <?php
 /**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
+ * Template part for displaying the custom 'press' feed
  * @package hadley
  */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php hadley_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-
-	</header><!-- .entry-header -->
+		<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+	</header>
 
 	<div class="entry-content">
-		
-		<?php /* Option 1: If we have a featured image: */ ?>
-		<?php if ( has_post_thumbnail() ) : ?>
-		
 		<div class="grid">
 
-			<div class="col-4">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('large'); ?></a>
-			</div>
-
-			<div class="col-8">
-				
-			<?php /* Check for either content or excerpt, and get the right one */ ?>
-			<?php get_template_part( 'template-parts/content', 'content-excerpt' ); ?>
-
-			</div>
-			
-		</div><!-- /.grid -->
-		
-		<?php /* Option 2: If we do NOT have a featured image: */ ?>
-		<?php else : ?>
-		<div class="grid">
-			<!-- block -->
-			<?php /* the content/excerpt */
-			/* If there's an excerpt, get it: */
-			if($post->post_excerpt){
-				the_excerpt( sprintf(
-					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'hadley' ), array( 'span' => array( 'class' => array() ) ) ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				));
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hadley' ),
-					'after'  => '</div>',
-				));
-			}
-			/* If not, get the content: */
-			else {
-				the_content( sprintf(
-					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'hadley' ), array( 'span' => array( 'class' => array() ) ) ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				));
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hadley' ),
-					'after'  => '</div>',
-				));
-			}
+			<?php // Get our ACF field variables for this page
+			$published      = get_field('book_published');
+			$publisher      = get_field('book_publisher');
+			$publisher_link = get_field('book_publisher_link');
+			$publisher_book = get_field('book_publisher_book');
+			$amazon_link    = get_field('book_amazon_link');
 			?>
-			<p><a href="<?php the_permalink(); ?>">Read more</a></p>
-			<!-- /block -->
-		</div><!-- /.grid -->
-		<?php endif; /* if ( has_post_thumbnail() */ ?>
 
+			<?php
+			/*
+			If there's a featured image, use a two-column layout.
+			We could just allow the user to float (right/left align) the image,
+			but this is a cleaner layout, and will look better on multiple screen sizes.
+			*/
+			?>
+			<?php if ( has_post_thumbnail() ) : ?>
+
+				<div class="col-4">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('medium_large'); ?></a>
+				</div>
+
+				<div class="col-8">
+
+					<?php // Get the post content ?>
+					<?php get_template_part( 'template-parts/content', 'page-press-inc' ); ?>
+
+				</div><!-- /.col-8 -->
+
+			<?php else: // If no featured image, use a single column layout ?>
+
+				<?php // Get the post content ?>
+				<?php get_template_part( 'template-parts/content', 'page-press-inc' ); ?>
+
+			<?php endif; ?>
+
+		</div><!-- /.grid -->
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

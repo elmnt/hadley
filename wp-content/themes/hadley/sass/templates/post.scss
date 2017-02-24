@@ -2,6 +2,9 @@
  * Post Styles
  */
 
+.articles__meta {
+  margin-bottom: 1rem;
+}
 
 // ---------------------- Global post styles
 
@@ -15,7 +18,7 @@
 .post .entry-meta a {
   text-decoration: none;
   color: lighten($base-text-color, 25%);
-  
+
   &:visited {
     color: lighten($base-text-color, 25%);
   }
@@ -56,11 +59,11 @@ article.post {
 
 // meta info added via custom fields
 
-.meta__custom-holder {
-  // empty holder so child selectors work on the .meta__custom class
+.post__meta-holder {
+  // empty holder so child selectors work on the .post__meta class
 }
 
-.meta__custom {
+.post__meta {
   font-family: $sans;
   font-size: .75rem;
   line-height: 1em;
@@ -80,12 +83,12 @@ article.post {
 
 }
 
-.meta__custom a {
+.post__meta a {
   text-decoration: none;
   color: black;
 }
 
-.meta__custom span {
+.post__meta span {
   text-transform: uppercase;
 }
 

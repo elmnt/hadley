@@ -17,9 +17,8 @@ get_header(); ?>
 
 			<?php
 			/*
-			Determine if it's a 'holder' page template for one of the
-			CPT UI post type collections ( books, articles, etc. ),
-			or just a standard page.
+			Determine if it's a page template for one of the Custom Post Type UI
+			post type collections ( books, articles, etc. ), or just a standard page.
 			*/
 
 			// Get the page ID
@@ -28,7 +27,7 @@ get_header(); ?>
 			// Get all Custom Post Type UI slugs (array)
 			$cptui_types = cptui_get_post_type_slugs();
 
-			// Is this one of the CPT UI pages?
+			// Is this page ID one of the Custom Post Type UI post types?
 			if ( in_array( $pageid, $cptui_types ) ) {
 
 				// Yes. Run a custom query to grab that feed.
