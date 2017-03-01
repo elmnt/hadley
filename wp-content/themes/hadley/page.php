@@ -18,7 +18,7 @@ get_header(); ?>
 			<?php
 			/*
 			Determine if it's a page template for one of the Custom Post Type UI
-			post type collections ( books, articles, etc. ), or just a standard page.
+			collections ( books, articles, etc. ), or just a standard page.
 			*/
 
 			// Get the page ID

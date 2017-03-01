@@ -3,8 +3,24 @@
  * The header for our theme
  * @package hadley
  */
+
+/*
+Displays a subtle message on the front-end, anywhere there is ACF content,
+if the ACF plugin has been turned off. Normally we'd avoid showing any
+kind of error message on the front-end, but if ACF has been turned off,
+for any reason, we're loosing most of our content.
+*/
+$GLOBALS[ 'noacf' ] = '<p class="noacf">Please activate the <em>Advanced Custom Fields</em> plugin</p>';
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">

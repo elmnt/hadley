@@ -25,7 +25,7 @@ var MediaModal = function (options) {
         type : 'image'
       }
     });
-		
+
     // Set filterable state to uploaded to get select to show (setting this
     // when creating the frame doesn't work)
     frame.on('toolbar:create:select', function(){
@@ -50,7 +50,7 @@ var MediaModal = function (options) {
         selection.add(Attachment.get($caller.data('thumbnail_id')));
       }
     });
-        
+
     frame.open();
   };
 

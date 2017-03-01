@@ -31,18 +31,14 @@
 }
 
 // adjust bottom margin on the last paragraph of a post
-.post .entry-content p {
-
-  &:last-of-type {
-    margin-bottom: 1rem;
-  }
-
+article .entry-content p:last-of-type {
+    margin-bottom: 0;
 }
 
 // article styles
 article.post {
   padding-bottom: 2rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid $base-border-color;
 
   &:last-of-type {
@@ -60,10 +56,11 @@ article.post {
 // meta info added via custom fields
 
 .post__meta-holder {
-  // empty holder so child selectors work on the .post__meta class
+  margin-bottom: 1rem;
 }
 
-.post__meta {
+.post__meta,
+.post__permalink {
   font-family: $sans;
   font-size: .75rem;
   line-height: 1em;
@@ -83,7 +80,8 @@ article.post {
 
 }
 
-.post__meta a {
+.post__meta a,
+.post__permalink a {
   text-decoration: none;
   color: black;
 }

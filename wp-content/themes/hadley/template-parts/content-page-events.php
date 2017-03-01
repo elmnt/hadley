@@ -12,38 +12,43 @@
 	<div class="entry-content">
 		<div class="grid">
 
-			<?php // Get our ACF field variables for this page
-			$published      = get_field('book_published');
-			$publisher      = get_field('book_publisher');
-			$publisher_link = get_field('book_publisher_link');
-			$publisher_book = get_field('book_publisher_book');
-			$amazon_link    = get_field('book_amazon_link');
-			?>
-
 			<?php
 			/*
-			If there's a featured image, use a two-column layout.
-			We could just allow the user to float (right/left align) the image,
-			but this is a cleaner layout, and will look better on multiple screen sizes.
+			Assign the ACF field variables, but first check that the
+			plugin is active, so the whole site doesn't implode if it's not O_O
 			*/
+			if ( function_exists( 'get_field' ) ) {
+				$e_date             = get_field('event_date');
+				$e_time             = get_field('event_time');
+				$e_location_address = get_field('event_location_address');
+				$e_location_city    = get_field('event_location_city');
+				$e_location_state   = get_field('event_location_state');
+				$e_google_map_link  = get_field('event_google_map_link');
+			}
 			?>
+
+			<?php  // If there's a featured image, use a two-column layout. ?>
 			<?php if ( has_post_thumbnail() ) : ?>
 
-				<div class="col-4">
+				<div class="col-5">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('medium_large'); ?></a>
 				</div>
 
-				<div class="col-8">
+				<div class="col-7">
 
-					<?php // Get the post content ?>
-					<?php get_template_part( 'template-parts/content', 'page-events-inc' ); ?>
+					<?php
+					/*
+					We're using this method to grab the additional template part
+					because get_template_part( $slug, $name = null ) does not
+					carry the variables into the included content.
+					*/
+					include( locate_template( 'template-parts/content-page-events-inc.php' )); ?>
 
-				</div><!-- /.col-8 -->
+				</div><!-- /.col-7 -->
 
-			<?php else: // If no featured image, use a single column layout ?>
+			<?php else: // If no featured image, use a single column layout for the same content ?>
 
-				<?php // Get the post content ?>
-				<?php get_template_part( 'template-parts/content', 'page-events-inc' ); ?>
+			<?php include( locate_template( 'template-parts/content-page-events-inc.php' )); ?>
 
 			<?php endif; ?>
 
