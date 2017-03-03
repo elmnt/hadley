@@ -53,46 +53,46 @@ h1 {
 }
 
 h1,
-.h1 { 
+.h1 {
   font-size: $h1-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h1;
-  } 
+  }
 }
 h2,
-.h2 { 
+.h2 {
   font-size: $h2-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h2;
-  } 
+  }
 }
 h3,
-.h3 { 
+.h3 {
   font-size: $h3-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h3;
-  } 
+  }
 }
 h4,
-.h4 { 
+.h4 {
   font-size: $h4-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h4;
-  } 
+  }
 }
 h5,
-.h5 { 
+.h5 {
   font-size: $h5-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h5;
-  } 
+  }
 }
 h6,
-.h6 { 
+.h6 {
   font-size: $h6-mobile;
   @media only screen and (min-width: 600px) {
     font-size: $h6;
-  } 
+  }
 }
 
 blockquote {
@@ -100,6 +100,11 @@ blockquote {
   padding: $blockquote-padding;
   border-left: $blockquote-border-left;
   background-color: $blockquote-bg-color;
+
+  span {
+    font-size: 1rem;
+  }
+
 }
 
 blockquote p {
@@ -112,6 +117,19 @@ blockquote p {
   font-style: $blockquote-p-font-style;
   font-weight: $blockquote-p-font-weight;
   text-indent: $blockquote-p-text-indent;
+
+  &:last-of-type {
+    padding-top: 0;
+    font-family: $sans;
+    font-size: .75rem;
+    font-style: normal;
+    line-height: 1em;
+    color: lighten($base-text-color, 25%);
+    font-weight: bold;
+    font-weight: $fw-bold;
+    margin-bottom: 0;
+  }
+
 }
 
 blockquote p em {
@@ -177,7 +195,7 @@ hr {
   border-bottom: $hr-border-bottom;
 }
 
-strong { 
+strong {
   font-weight: $fw-bold;
 }
 

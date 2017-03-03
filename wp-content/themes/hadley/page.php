@@ -31,12 +31,13 @@ get_header(); ?>
 			if ( in_array( $pageid, $cptui_types ) ) {
 
 				// Yes. Run a custom query to grab that feed.
+				// All template parts specific to Hadley's custom post types are in template-parts/h/
 				$args = array(
 					'post_type' => $pageid
 				);
 				$query = new WP_Query( $args );
 				if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
-					get_template_part( 'template-parts/content-page', $pageid );
+					get_template_part( 'template-parts/h/content-page', $pageid );
 				endwhile; endif; wp_reset_postdata(); // End of the loop.
 
 			// No. It's a normal page.

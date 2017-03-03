@@ -5,6 +5,12 @@
  * before dumping them into their appropriate partials.
  */
 
+/* maybe?
+.content-area .entry-content {
+    max-width: $wp-content-area-max-width;
+}
+*/
+
 .noacf {
     color: #999 !important;
 }
@@ -55,6 +61,7 @@ $debug: false;
         padding-left: 20px;
         border-left: 2px solid #ccc;
     }
+
 }
 
 #comments ul.comment-list li {

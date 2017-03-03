@@ -20,10 +20,7 @@
 	?>
 
 	<header class="entry-header">
-		<?php
-		// The a_link field in mandatory, so no safety conditional needed
-		the_title( '<h4 class="entry-title"><a href="'.$a_link.'" rel="bookmark">', ' &rarr;</a></h4>' );
-		?>
+		<?php the_title( '<h3 class="entry-title"><a href="'.$a_link.'" rel="bookmark">', ' &rarr;</a></h3>' ); ?>
 	</header>
 
 	<div class="entry-content">
@@ -44,13 +41,13 @@
 				because get_template_part( $slug, $name = null ) does not
 				carry the variables into the included content.
 				*/
-				include( locate_template( 'template-parts/content-page-articles-inc.php' )); ?>
+				include( locate_template( 'template-parts/h/content-page-articles-inc.php' )); ?>
 
 			</div><!-- /.col-7 -->
 
 			<?php else: // If no featured image, use a single column layout for the same content ?>
 
-			<?php include( locate_template( 'template-parts/content-page-articles-inc.php' )); ?>
+			<?php include( locate_template( 'template-parts/h/content-page-articles-inc.php' )); ?>
 
 			<?php endif; ?>
 

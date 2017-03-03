@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the custom 'events' feed
+ * Template part for displaying the custom 'books' feed
  * @package hadley
  */
 ?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -18,12 +18,11 @@
 			plugin is active, so the whole site doesn't implode if it's not O_O
 			*/
 			if ( function_exists( 'get_field' ) ) {
-				$e_date             = get_field('event_date');
-				$e_time             = get_field('event_time');
-				$e_location_address = get_field('event_location_address');
-				$e_location_city    = get_field('event_location_city');
-				$e_location_state   = get_field('event_location_state');
-				$e_google_map_link  = get_field('event_google_map_link');
+				$b_published      = get_field('book_published');
+				$b_publisher      = get_field('book_publisher');
+				$b_publisher_link = get_field('book_publisher_link');
+				$b_publisher_book = get_field('book_publisher_book');
+				$b_amazon_link    = get_field('book_amazon_link');
 			}
 			?>
 
@@ -42,13 +41,13 @@
 					because get_template_part( $slug, $name = null ) does not
 					carry the variables into the included content.
 					*/
-					include( locate_template( 'template-parts/content-page-events-inc.php' )); ?>
+					include( locate_template( 'template-parts/h/content-page-books-inc.php' )); ?>
 
 				</div><!-- /.col-7 -->
 
 			<?php else: // If no featured image, use a single column layout for the same content ?>
 
-			<?php include( locate_template( 'template-parts/content-page-events-inc.php' )); ?>
+			<?php include( locate_template( 'template-parts/h/content-page-books-inc.php' )); ?>
 
 			<?php endif; ?>
 

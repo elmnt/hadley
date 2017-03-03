@@ -160,10 +160,10 @@ $blockquote-border-left:       4px solid $blockquote-border-left-color;
 $blockquote-bg-color:          $site-color-1;
 
 $blockquote-p-margin:      0;
-$blockquote-p-padding:     2rem;
+$blockquote-p-padding:     1.5rem;
 $blockquote-p-font-family: $serif;
 $blockquote-p-color:       $brand-color-1;
-$blockquote-p-font-size:   1.25rem;
+$blockquote-p-font-size:   1rem;
 $blockquote-p-line-height: 1.5em;
 $blockquote-p-font-style:  italic;
 $blockquote-p-font-weight: normal;
@@ -319,6 +319,13 @@ $container-pad:        0 2em;
 $container-pad-mobile: 0 1em;
 $wrap-max-width:       1400px;
 $wrap-min-width:       100px;
+
+/*
+Set a max width for the WP content-area class
+( the main content in the left column (or single column) )
+on big screens
+*/
+$wp-content-area-max-width: 780px;
 
 // center-align & middle-align box
 $cmbox-default-background: white;
