@@ -21,10 +21,10 @@
 				$pod_title        = get_field('podcast_title');
 				$pod_link         = get_field('podcast_link');
 				$pod_ep_number    = get_field('podcast_episode_number');
-				$pod_ep_title     = get_field('podcast_episode_title');
 				$pod_ep_link      = get_field('podcast_episode_link');
-				$pod_ep_date      = get_field('podcast_episode_date');
-				$pod_ep_date_euro = get_field('podcast_episode_date_euro');
+				$pod_ep_date      = get_field('podcast_episode_date', false, false);
+				$pod_ep_date      = new DateTime($pod_ep_date);
+				$pod_ep_date_euro = get_field('episode_date_euro');
 				$pod_ep_length    = get_field('podcast_episode_length');
 			}
 			?>
@@ -44,13 +44,13 @@
 					because get_template_part( $slug, $name = null ) does not
 					carry the variables into the included content.
 					*/
-					include( locate_template( 'template-parts/h/content-page-events-inc.php' )); ?>
+					include( locate_template( 'template-parts/h/content-page-podcasts-inc.php' )); ?>
 
 				</div><!-- /.col-7 -->
 
 			<?php else: // If no featured image, use a single column layout for the same content ?>
 
-			<?php include( locate_template( 'template-parts/h/content-page-events-inc.php' )); ?>
+			<?php include( locate_template( 'template-parts/h/content-page-podcasts-inc.php' )); ?>
 
 			<?php endif; ?>
 
