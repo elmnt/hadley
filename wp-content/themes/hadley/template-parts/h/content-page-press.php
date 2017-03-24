@@ -3,25 +3,19 @@
  * Template part for displaying the custom 'articles' feed
  * @package hadley
  */
+// Assign the ACF variables
+if ( function_exists( 'get_field' ) ) {
+	$pr_link          = get_field('press_link');
+	$pr_source        = get_field('press_source');
+	$pr_source_link   = get_field('press_source_link');
+	$pr_date          = get_field('press_date');
+	$pr_byline        = get_field('press_byline');
+	$pr_byline_link   = get_field('press_byline_link');
+	$pr_quote         = get_field('press_quote');
+	$pr_excerpt       = get_field('press_excerpt');
+	$pr_longer        = get_field('press_longer');
+}
 ?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-	<?php
-	/*
-	Assign the ACF field variables, but first check that the
-	plugin is active, so the whole site doesn't implode if it's not O_O
-	*/
-	if ( function_exists( 'get_field' ) ) {
-		$pr_link          = get_field('press_link');
-		$pr_source        = get_field('press_source');
-		$pr_source_link   = get_field('press_source_link');
-		$pr_date          = get_field('press_date');
-		$pr_byline        = get_field('press_byline');
-		$pr_byline_link   = get_field('press_byline_link');
-		$pr_quote         = get_field('press_quote');
-		$pr_excerpt       = get_field('press_excerpt');
-		$pr_longer        = get_field('press_longer');
-	}
-	?>
 
 	<header class="entry-header">
 

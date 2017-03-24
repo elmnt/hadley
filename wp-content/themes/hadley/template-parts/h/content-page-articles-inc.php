@@ -14,7 +14,7 @@
 			<?php endif; ?>
 		<?php else: // No reference to the publisher's site ?>
 		<?php endif; ?>
-		<p class="post__permalink"><a href="<?php echo get_permalink(); ?>" rel="bookmark">Permalink &infin;</a></p>
+		<p class="post__permalink"><a href="<?php the_permalink(); ?>" rel="bookmark">Permalink &infin;</a></p>
 	</div>
 
 	<?php // The description

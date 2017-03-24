@@ -3,6 +3,14 @@
  * Template part for displaying individual 'books' posts
  * @package hadley
  */
+// Assign the ACF variables
+if ( function_exists( 'get_field' ) ) {
+	$b_published      = get_field('book_published');
+	$b_publisher      = get_field('book_publisher');
+	$b_publisher_link = get_field('book_publisher_link');
+	$b_publisher_book = get_field('book_publisher_book');
+	$b_amazon_link    = get_field('book_amazon_link');
+}
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -12,29 +20,38 @@
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php hadley_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'hadley' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+		<div class="grid">
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'hadley' ),
-				'after'  => '</div>',
-			) );
-		?>
+		<?php  // If there's a featured image, use a two-column layout ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+
+			<div class="col-5">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('medium_large'); ?></a>
+			</div>
+
+			<div class="col-7">
+
+				<?php
+				/*
+				We're using this method to grab the additional template part
+				because get_template_part( $slug, $name = null ) does not
+				carry the variables into the included content.
+				*/
+				include( locate_template( 'template-parts/h/content-page-books-inc.php' )); ?>
+
+			</div><!-- /.col-7 -->
+
+		<?php else: // If no featured image, use a single column layout for the same content ?>
+
+		<?php include( locate_template( 'template-parts/h/content-page-books-inc.php' )); ?>
+
+		<?php endif; ?>
+
+		</div><!-- /.grid -->
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

@@ -15,14 +15,10 @@ get_header(); ?>
 		<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php
-			/*
-			Determine if it's one of the CPT UI posts
-			( a book, an article, etc. ), or just a standard post.
-			*/
+			<?php // Is it a CPT UI post, or just a standard post?
 
 			// Get the standard WordPress post type
-			// ( This will include the CPT UI post types )
+			// ( This will include all CPT UI post types )
 			$mytype = get_post_type( get_the_ID() );
 
 			// Get all Custom Post Type UI slugs (array)
@@ -33,7 +29,7 @@ get_header(); ?>
 
 				// Yes. Get the custom content partial.
 				while ( have_posts() ) : the_post();
-					get_template_part( 'template-parts/content-single', $mytype );
+					get_template_part( 'template-parts/h/content-single', $mytype );
 					the_post_navigation();
 				endwhile; // End of the loop.
 

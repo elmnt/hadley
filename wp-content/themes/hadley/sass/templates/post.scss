@@ -62,11 +62,11 @@ article.post {
 .post__meta,
 .post__permalink {
   font-family: $sans;
-  font-size: .75rem;
+  font-size: .8rem;
   line-height: 1em;
   color: lighten($base-text-color, 25%);
   font-weight: bold;
-  font-weight: $fw-bold;
+  font-weight: $fw-semibold;
   margin-bottom: .5rem;
 
   &:last-of-type {
@@ -126,3 +126,28 @@ h2.title__post-link {
   }
 
 }
+
+// ---------------------- unique styles on any posts, including CPT UI posts
+
+// title on the podcast feed
+// ( template-parts/h/content-page-podcasts-inc.php )
+.podcast__showtitle {
+
+  margin-top: 2rem;
+
+  @media only screen and (min-width: 800px) {
+    margin-top: 0;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
